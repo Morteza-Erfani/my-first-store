@@ -10,19 +10,28 @@ import { CartContext } from "../../context/CartContextProvider";
 // Icons
 import trashIcon from "../../assets/icons/icons8-trash.svg";
 
+// Styles
+import styles from "./Product.module.css";
+
 const Product = ({ productData }) => {
-  const {state, dispatch} = useContext(CartContext);
+  const { state, dispatch } = useContext(CartContext);
 
   return (
-    <div>
-      <img src={productData.image} alt="product" style={{ width: "200px" }} />
+    <div className={styles.container}>
+      <img
+        className={styles.cardImage}
+        src={productData.image}
+        alt="product"
+        style={{ width: "200px" }}
+      />
       <h3>{shorter(productData.title)}</h3>
       <p>{productData.price}</p>
-      <div>
+      <div className={styles.linkContainer}>
         <Link to={`/products/${productData.id}`}>Detail</Link>
-        <div>
+        <div className={styles.buttonContainer}>
           {quantityCount(state, productData.id) === 1 && (
             <button
+              className={styles.smallButton}
               onClick={() =>
                 dispatch({ type: "REMOVE_ITEM", payload: productData })
               }
@@ -33,6 +42,7 @@ const Product = ({ productData }) => {
 
           {quantityCount(state, productData.id) > 1 && (
             <button
+              className={styles.smallButton}
               onClick={() =>
                 dispatch({ type: "DECREASE", payload: productData })
               }
@@ -42,11 +52,14 @@ const Product = ({ productData }) => {
           )}
 
           {quantityCount(state, productData.id) > 0 && (
-            <span>{quantityCount(state, productData.id)}</span>
+            <span className={styles.counter}>
+              {quantityCount(state, productData.id)}
+            </span>
           )}
 
           {quantityCount(state, productData.id) > 0 ? (
             <button
+              className={styles.smallButton}
               onClick={() =>
                 dispatch({ type: "INCREASE", payload: productData })
               }

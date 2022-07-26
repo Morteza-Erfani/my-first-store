@@ -64,7 +64,7 @@ const cartReducer = (state, action) => {
         ...sumItems(state.selectedItems),
       };
 
-    case "CHEKCOUT":
+    case "CHECKOUT":
       return {
         selectedItems: [],
         itemsCounter: 0,
