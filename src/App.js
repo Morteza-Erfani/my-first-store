@@ -16,7 +16,7 @@ function App() {
     <div className="App">
       <ProductContextProvider>
         <CartContextProvider>
-        <Navbar />
+          <Navbar />
           <Routes>
             <Route path="/products/:id" element={<ProductDetails />} />
             <Route path="/products" element={<Store />} />

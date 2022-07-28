@@ -28,7 +28,7 @@ const ShopCart = () => {
           </p>
           <p>
             <span>Total Payments: </span>
-            {state.total}
+            {state.total} $
           </p>
           <div className={styles.buttonContainer}>
             <button
@@ -49,7 +49,7 @@ const ShopCart = () => {
 
       {state.itemsCounter === 0 && !state.checkout && (
         <div className={styles.complete}>
-          <h3>Whant To Buy?</h3>
+          <h3>Want To Buy?</h3>
           <Link to="/products">Go To Shop</Link>
         </div>
       )}

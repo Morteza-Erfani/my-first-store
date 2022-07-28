@@ -36,7 +36,7 @@ const Cart = (props) => {
         ) : (
           <button
             onClick={() =>
-              dispatch({ type: "RMEMOVE_ITEM", payload: props.data })
+              dispatch({ type: "REMOVE_ITEM", payload: props.data })
             }
           >
             <img src={trashIcon} alt="trash" />
